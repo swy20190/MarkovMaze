@@ -186,6 +186,8 @@ public class Main {
                 }
                 count[0]=0;
                 stepCount[0]=0;
+                showN.setText(count[0]+"");
+                stepCountShow.setText(stepCount[0]+"");
                 edit.setEnabled(true);
                 next.setEnabled(false);
             }
@@ -195,6 +197,12 @@ public class Main {
             @Override
             public void actionPerformed(ActionEvent e) {
                 stepCount[0]=0;
+                for(int i=0;i<25;i++)
+                    if(rewards[i]==1||rewards[i]==-1)
+                        grids.get(i).setText(rewards[i]+"");
+                    else {
+                        grids.get(i).setText(values[i] + "");
+                    }
                 int k = startIndex[0];
                 double gamma = gammaa[0];
                 while(rewards[k]!=1){   //not end!
@@ -317,7 +325,7 @@ public class Main {
                         }
                     }
                 }
-                stepCountShow.setText(stepCount[0]+"");
+                stepCountShow.setText(stepCount[0]+1+"");
             }
         });
 
